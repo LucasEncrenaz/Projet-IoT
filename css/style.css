@@ -1,0 +1,11 @@
+body {
+    font: 2em "Open Sans", sans-serif;
+}
+
+.titrePrincipal {
+    text-align: center;
+}
+
+.temperature {
+    text-align: center;
+}
