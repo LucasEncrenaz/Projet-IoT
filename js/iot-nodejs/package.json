@@ -1,0 +1,96 @@
+{
+  "name": "@wiotp/sdk",
+  "version": "0.7.8",
+  "description": "SDK for developing device, gateway, and application clients for IBM Watson IoT Platform",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "src",
+    "package.json",
+    "README.md",
+    "LICENCE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "bluebird": "^3.5.4",
+    "btoa": "^1.2.1",
+    "concat-stream": "^2.0.0",
+    "esm": "^3.2.25",
+    "events": "^3.0.0",
+    "form-data": "^2.3.3",
+    "format": "^0.2.2",
+    "loglevel": "^1.6.1",
+    "mqtt": "^3.0.0",
+    "systeminformation": "^4.22.3",
+    "tinycache": "^1.1.2",
+    "uuid": "^3.4.0",
+    "yaml": "^1.7.2",
+    "yargs": "^15.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.7.7",
+    "@babel/core": "7.7.7",
+    "@babel/preset-env": "7.7.7",
+    "@babel/register": "7.7.7",
+    "@cloudant/cloudant": "^2.1.0",
+    "@istanbuljs/nyc-config-babel": "^3.0.0",
+    "babel-plugin-istanbul": "^6.0.0",
+    "babelify": "^10.0.0",
+    "browserify": "^16.5.1",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "coveralls": "3.0.9",
+    "mocha": "6.2.2",
+    "mocha-steps": "^1.3.0",
+    "nyc": "15.0.0",
+    "rimraf": "2.6.3",
+    "terser": "^4.4.3"
+  },
+  "scripts": {
+    "clean": "rimraf dist/*",
+    "build": "npm run clean && npm run build:commonjs && npm run build:bundle && npm run build:min",
+    "build:commonjs": "babel src --out-dir dist",
+    "build:bundle": "browserify -t [ babelify --presets [ @babel/preset-env ] --global ] src --outfile dist/bundled/wiotp-bundle.js",
+    "build:min": "terser dist/bundled/wiotp-bundle.js -o dist/bundled/wiotp-bundle.min.js",
+    "test": "mocha --require @babel/register --require mocha-steps",
+    "test-cov": "nyc --reporter=lcov --reporter=text-summary mocha --require mocha-steps",
+    "test:watch": "mocha --require @babel/register --require mocha-steps --watch"
+  },
+  "author": {
+    "name": "David Parker",
+    "email": "parkerda@uk.ibm.com"
+  },
+  "contributors": [
+    {
+      "name": "Tom Klapiscak",
+      "email": "klapitom@uk.ibm.com"
+    },
+    {
+      "name": "Bryan Boyd",
+      "email": "bboyd@us.ibm.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibm-watson-iot/iot-nodejs.git"
+  },
+  "license": "EPL-1.0",
+  "nyc": {
+    "require": [
+      "@babel/register"
+    ],
+    "all": true,
+    "include": [
+      "src/**/*.js"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "sourceMap": false,
+    "instrument": true
+  }
+}

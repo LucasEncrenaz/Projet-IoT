@@ -8,4 +8,12 @@ function apteAjouer($temperature)
         echo "Oui";
 }
 
+function couleurTemperature($temperature)
+{
+    if ($temperature > 38)
+        echo "color: red";
+    else
+        echo "color: green";
+}
+
 ?>

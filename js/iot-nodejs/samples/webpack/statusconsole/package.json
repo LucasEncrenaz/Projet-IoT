@@ -1,0 +1,29 @@
+{
+  "name": "@wiotp/statusconsole",
+  "version": "1.0.0",
+  "description": "IBM Watson IoT Platform Status Console Demo Application",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "build-dev": "webpack -d --mode development",
+    "build-prod": "webpack -p --mode production",
+    "test": "mocha --require @babel/register"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@wiotp/sdk": "0.6.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/register": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "babel-loader": "^8.0.6",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10"
+  }
+}

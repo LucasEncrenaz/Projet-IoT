@@ -13,3 +13,22 @@ body {
 .label {
     font-weight: bold;;
 }
+
+.msg {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.contenu {
+    margin: 10px 0;
+}
+
+.contenu:first-child {
+    margin: 40px 0 10px 0;
+}
+
+.maliste {
+    font-size: 30px;
+    padding: 10px;
+}

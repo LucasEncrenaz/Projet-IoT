@@ -1,0 +1,30 @@
+language: node_js
+
+matrix:
+  include:
+    - node_js: "12"
+      env: RUN_COVERAGE=true 
+    - node_js: "11"
+
+before_install:
+  # Upgrade NPM, without this a number of modules will fail to install
+  - npm i -g npm
+
+install:
+  - npm install
+
+script:
+  # - npm ls
+  # Run test, optionally with coverage enabled.  Return non-0 if tests fail
+  - |
+      if [ -n "$RUN_COVERAGE" ]; then
+        if npm run test-cov; then
+          cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+          exit 0
+        fi
+      else
+        if npm run test; then
+          exit 0
+        fi
+      fi
+      exit 1
