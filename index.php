@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="logo.png" />
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
-    <script src="script.js"></script>
+    
   </head>
   <body>
     <h1 class="titrePrincipal">Contrôle de température</h1>
@@ -34,13 +34,12 @@
         <div class="<?php echo $mydata['id']; ?> msg">
           <p class="contenu">Nom : <?php echo $mydata['name']; ?></p>
           <p class="contenu">Date de naissance : <?php echo $mydata['dateNaissance']; ?></p>
-          <p class="contenu">Température : <span style="<?php couleurTemperature($mydata['temperature']); ?>"><?php echo $mydata['temperature']; ?>°C</span></p>
-          <p class="temp"></p>
-          <p class="contenu">Apte à jouer : <?php apteAjouer($mydata['temperature']); ?> </p>
-      </div>
+        </div>
         <?php
       }
       ?>
+      <p class="temp"></p>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>

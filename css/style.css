@@ -24,6 +24,11 @@ body {
     margin: 10px 0;
 }
 
+.temp {
+    margin: 10px 0;
+    text-align: left;
+}
+
 .contenu:first-child {
     margin: 40px 0 10px 0;
 }

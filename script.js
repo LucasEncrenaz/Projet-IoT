@@ -44,7 +44,7 @@ function httpGetAsync(theUrl, callback)
 
       const clientId  = 'a:'+myOrg+':tvqre63x9o';
 
-      var divTemp = document.querySelector(".wejdene")
+      var divTemp = document.querySelector(".temp")
 
       client = new Paho.MQTT.Client(myOrg+".messaging.internetofthings.ibmcloud.com", 443, "", clientId);
 
@@ -58,9 +58,8 @@ function httpGetAsync(theUrl, callback)
 
           //RECUPERATION JSON (RES C LE TABLO)
           var res = JSON.parse(message.payloadString)
-          // divWejdene.insertAdjacentHTML('beforeend', '<p>'+res.t.concat(' ',res.date)+'</p>');
-          divTemp.insertAdjacentHTML('beforeend', 'Température : '+res.t+' °C , Date : '+res.date);
           console.log(res);
+          divTemp.innerHTML = 'Température : '+res.t+' °C  -  Date : '+res.date;          
       }
 
       // Topic pour accéder aux données
